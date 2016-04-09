@@ -1,4 +1,4 @@
 class Worker < ActiveRecord::Base
 	validates :name, presence: true
-	has_many :operation, :dependent => :delete_all
+	has_many :operations, :dependent => :delete_all
 end
