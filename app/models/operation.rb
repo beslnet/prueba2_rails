@@ -1,6 +1,7 @@
 class Operation < ActiveRecord::Base
   belongs_to :worker
   belongs_to :inventory
+  after_destroy { |record| logger.info( "Operation #{record.sku} was destroyed." ) }
 
   scope :all_firstwork, -> { where(worker_id: 1)}
   scope :last5, -> { order('id desc limit 5').reverse}
